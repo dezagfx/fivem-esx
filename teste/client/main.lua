@@ -18,6 +18,10 @@ AddEventHandler('esx:setJob', function(job)
   PlayerData.job = job
 end)
 
+RegisterNetEvent('output')
+AddEventHandler('output', function(argument)
+    TriggerEvent("chatMessage", "[Report]: ", {255,0,0}, "Report" .. argument .. "sent to admins")
+end)
 --------------------------------
 local isMenuOpen = false
 local options = {
@@ -61,9 +65,7 @@ function Suicide()
     SetEntityHealth(PlayerPedId(), 0)
 end
 
-function ShowId()
-    ESX.ShowNotification(PlayerPedId())
-end
+
 
 Citizen.CreateThread(function()
     while true do
