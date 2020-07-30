@@ -3,6 +3,7 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterCommand('teste', function(text)
+    local playerId = PlayerPedId()
     TriggerClientEvent('teste', playerId, 'Ola vacie')
 end)
 
