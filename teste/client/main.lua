@@ -23,3 +23,11 @@ end)
 RegisterCommand("id", function(source, raw, args)
 	ESX.ShowNotification("ID: ~g~" .. GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1))))
 end, false)
+
+RegisterCommand("help", function())
+    TriggerEvent('chat:addMessage', {
+        color = {255,0,0},
+        multiline = true,
+        args = {'[SERVER]', 'Scripting 4life'} --prefix and message
+    })
+
