@@ -1,3 +1,13 @@
+ESX              = nil
+local PlayerData = {}
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+end)
+
 local isMenuOpen = false
 local options = {
     {label = "Spawn Carbine afenx -.-", value = 'spawn_carbine'}, --spawn carabine rifle

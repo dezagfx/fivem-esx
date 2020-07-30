@@ -7,7 +7,7 @@ description 'misc commands'
 version '1.0.0'
 
 client_scripts { 
-    'client\client.lua'
+    'client/client.lua'
 }
 
 server_scripts {
