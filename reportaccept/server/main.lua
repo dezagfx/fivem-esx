@@ -18,7 +18,7 @@ RegisterCommand("get", function(source, args)
     local argString = table.concat(args, " ")
     MySQL.Async.fetchAll("SELECT * FROM reports WHERE status = 'waiting' ORDER BY id DESC LIMIT 5", {},
     function(result)
-        local string = "^3(".. result[1].name .. ") - ^8".. result[1.id] .. "^0: " .. result[1.comment])
+        local string = "^3(".. result[1].name .. ") - ^8".. result[1.id] .. "^0: " .. result[1].comment
         TriggerClientEvent("output", source, string)
     end)
 
