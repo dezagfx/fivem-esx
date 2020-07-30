@@ -8,3 +8,9 @@ ESX.RegisterServerCallback("teste:money", function(source,cb)
 
     cb(pdinheiro)
 end)
+
+ESX.RegisterServerCallback("teste:pid", function(source,cb)
+    local playerId = ESX.GetPlayerServerId(source)
+
+    cb(playerId)
+end)
