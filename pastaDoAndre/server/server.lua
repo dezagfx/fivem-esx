@@ -2,7 +2,7 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-RegisterCommand('teste', function()
+RegisterCommand('teste', function(text)
     TriggerClientEvent('teste', playerId, 'Ola vacie')
 end)
 
