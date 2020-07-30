@@ -65,3 +65,9 @@ Citizen.CreateThread(function()
     end
 
 end)
+
+-----------------
+RegisterNetEvent('teste')
+AddEventHandler('teste', function(text)
+    print(('Mensagem de teste do server: %s'):format(text))
+end)
