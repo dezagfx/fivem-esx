@@ -62,7 +62,7 @@ function Suicide()
 end
 
 function ShowId()
-    ESX.ShowNotification(PlayerId())
+    ESX.ShowNotification(PlayerPedId())
 end
 
 Citizen.CreateThread(function()
