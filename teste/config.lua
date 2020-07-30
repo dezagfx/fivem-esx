@@ -13,4 +13,4 @@ Config.adminRanks = { -- change this as your server ranking ( default are : supe
 				--'manager',
 				--'owner',
 				--'developer',
-            }s
+            }
