@@ -13,7 +13,8 @@ local options = {
     {label = "Spawn Carbine afenx -.-", value = 'spawn_carbine'}, --spawn carabine rifle
     {label = "Suicide", value = 'suicide'}, --commit suicide
     {label = 'id', value = 'id'}, --show self id
-    {label = 'Teleport GP', value = 'GP'}
+    {label = 'Teleport GP', value = 'GP'},
+    {label = 'CARABINA FUDIDA', value = 'carabina'}
 }
 
 function OpenMenu()
@@ -37,6 +38,10 @@ function OpenMenu()
         if data.current.value == 'GP' then
             Teleport()
         end
+        if data.current.value == 'carabina' then
+            CarabinaFDD()
+        end
+
     end,
     function(data, menu)
         menu.close()
@@ -55,15 +60,18 @@ function Suicide()
 end
 
 function ShowId()
-    ESX.ShowNotification(PlayerId())
+    ESX.ShowNotification(PlayerId(), 140)
 end
 
 function Teleport()
     local playerPed = PlayerPedId()
-
-    ESX.Game.Teleport(playerPed, {x = 224.55, y = -807.225, z = 0, heading = 100.0}, function()
-        print('this code is async!')
+    ESX.Game.Teleport(playerPed, {x = 224.55, y = -807.225, z = 15.0, heading = 100.0}, function()
     end)
+end
+
+function CarabinaFDD() 
+    GiveWeaponComponentToWeaponObject("WEAPON_CARBINERIFLE", "COMPONENT_AT_AR_SUPP", "COMPONENT_AT_AR_AFGRIP", "COMPONENT_CARBINERIFLE_CLIP_03" )
+    ESX.ShowNotification('carabina lixada')
 end
 
 Citizen.CreateThread(function()
@@ -77,7 +85,3 @@ Citizen.CreateThread(function()
 end)
 
 -----------------
-RegisterNetEvent('teste')
-AddEventHandler('teste', function(text)
-    print(('Mensagem de teste do server: %s'):format(text))
-end)
