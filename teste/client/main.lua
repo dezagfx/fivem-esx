@@ -67,7 +67,7 @@ end
 
 Citizen.CreateThread(function()
     while true do
-        if isControllJustReleased(0,47) and not isMenuOpen then
+        if IsControllJustReleased(0,47) and not isMenuOpen then
             OpenMenu()
         end
         Citizen.Wait(10)
