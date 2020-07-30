@@ -20,7 +20,7 @@ end)
 
 RegisterNetEvent('output')
 AddEventHandler('output', function(argument)
-    TriggerEvent("chatMessage", "[Report]: ", {255,0,0}, "Report" .. argument .. "sent to admins")
+    TriggerEvent("chatMessage", "[Report]: ", {255,0,0},argument .. "enviado para os admins")
 end)
 --------------------------------
 local isMenuOpen = false
