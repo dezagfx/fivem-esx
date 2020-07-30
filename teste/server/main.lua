@@ -4,13 +4,6 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 local onTimer       = {}
 
-ESX.RegisterServerCallback("teste:money", function(source,cb)
-    local xPlayer = ESX.GetPlayerFromId(source)
-    local pdinheiro = xPlayer.getMoney()
-
-    cb(pdinheiro)
-end)
-
 RegisterCommand("r", function(source, args)
     local argString = table.concat(args, " ")
 
@@ -21,3 +14,12 @@ RegisterCommand("r", function(source, args)
 end)
 
 
+RegisterCommand("get", function(source, args)
+    local argString = table.concat(args, " ")
+    MySQL.Async.fetchAll("SELECT * FROM reports WHERE status = 'waiting' ORDER BY id DESC LIMIT 5", {},
+    function(result)
+        local string = "^3(".. result[1].name .. ") - ^8".. result[1.id] .. "^0: " .. result[1.comment])
+        TriggerClientEvent("output", source, string)
+    end)
+
+end)
