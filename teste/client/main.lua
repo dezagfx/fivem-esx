@@ -20,8 +20,10 @@ RegisterCommand("dinheiro", function(source, args, rawCommand)
     end)
 end)
 
-RegisterCommand("id", function(source, args, rawCommand)
-    ESX.TriggerServerCallback("teste:pid", function(pid)
-        ESX.ShowNotification("O seu ID é: ~g~"..pid)
-    end)
-end)
+RegisterCommand("id", function(source, raw, args)
+	chatMessage("^1ID'niz: ^5" .. GetPlayerServerId(NetworkGetEntityOwner(GetPlayerPed(-1))))
+end, false)
+
+function chatMessage(msg)
+	TriggerEvent("chatMessage", "", {255, 255, 255}, msg)
+end
